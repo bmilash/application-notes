@@ -52,7 +52,7 @@ manually "singularity pull" this container to make a complete and
 working .sif file, named pgap_utils.sif.
 
 I tried installing cwltool outside the container, but that doesn't work
-- it needs to be within the container.
+as it needs to be within the container.
 
 I also found the PGAP_INPUT_DIR environment variable needs to be set for
-pgap.py to find the various files.
+pgap.py to find the various files, so this is set by the module file.
