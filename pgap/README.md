@@ -11,20 +11,19 @@ it is run. Even if it does not require updating, it seems to want to
 run out of a file in your .singularity/cache. I'm not certain how to
 prevent that time-consuming step.
 
-Some of my test jobs in shared nodes failed with errors from taskset,
+Some of my test jobs on shared nodes failed with errors from taskset,
 and I suspect this is because the job did not have access to all the
-CPUs. I've never seen this happen in a job on non-shared partitions, so
+CPUs. I've never seen this happen in a job on non-shared nodes, so
 I suggest you not use shared partitions.
 
 I found the following SLURM script ran successfully. The run time was exactly 
-2 hours on a 32-core notchpeak node.
+2 hours on a 32-core notchpeak node. You will need to update the SLURM
+account and potentially the partition:
 
 ```
 #!/bin/bash
 #SBATCH -A chpc
 #SBATCH -p notchpeak
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=brett.milash@utah.edu
 
 date '+Starting at %c'
 module load pgap
